@@ -1,5 +1,5 @@
 ## Date         : August 8 2014
-## Version      : 1.0
+## Version      : 1.1
 ## Desccription : Pair of functions for calculating matrix inverse.
 ##                These methods make use or R's caching capabilities to improve performance.
 
@@ -30,7 +30,7 @@ cacheSolve <- function(x, ...) {
     return(m)
   }
   data <- x$get()
-  m <- inverse(data, ...)
+  m <- solve(data)%*% data
   x$setInverse(m)
   m
 }
